@@ -6,8 +6,8 @@ var colornames = require('colornames');
  * Kuler: Color text using CSS colors
  *
  * @constructor
- * @param {String} text The text that needs to be styled
- * @param {String} color Optional color for alternate API.
+ * @param {string} text The text that needs to be styled
+ * @param {string} [color] Optional color for alternate API.
  * @api public
  */
 function Kuler(text, color) {
@@ -20,7 +20,7 @@ function Kuler(text, color) {
 /**
  * ANSI color codes.
  *
- * @type {String}
+ * @type {string}
  * @private
  */
 Kuler.prototype.prefix = '\x1b[';
@@ -29,8 +29,8 @@ Kuler.prototype.suffix = 'm';
 /**
  * Parse a hex color string and parse it to it's RGB equiv.
  *
- * @param {String} color
- * @returns {Array}
+ * @param { string } color
+ * @returns { [ number, number, number ] }
  * @api private
  */
 Kuler.prototype.hex = function hex(color) {
@@ -61,10 +61,10 @@ Kuler.prototype.hex = function hex(color) {
 /**
  * Transform a 255 RGB value to an RGV code.
  *
- * @param {Number} r Red color channel.
- * @param {Number} g Green color channel.
- * @param {Number} b Blue color channel.
- * @returns {String}
+ * @param {number} r Red color channel.
+ * @param {number} g Green color channel.
+ * @param {number} b Blue color channel.
+ * @returns {number}
  * @api public
  */
 Kuler.prototype.rgb = function rgb(r, g, b) {
@@ -78,10 +78,10 @@ Kuler.prototype.rgb = function rgb(r, g, b) {
 /**
  * Turns RGB 0-5 values into a single ANSI code.
  *
- * @param {Number} r Red color channel.
- * @param {Number} g Green color channel.
- * @param {Number} b Blue color channel.
- * @returns {String}
+ * @param {number} r Red color channel.
+ * @param {number} g Green color channel.
+ * @param {number} b Blue color channel.
+ * @returns {number}
  * @api public
  */
 Kuler.prototype.ansi = function ansi(r, g, b) {
@@ -95,7 +95,7 @@ Kuler.prototype.ansi = function ansi(r, g, b) {
 /**
  * Marks an end of color sequence.
  *
- * @returns {String} Reset sequence.
+ * @returns {string} Reset sequence.
  * @api public
  */
 Kuler.prototype.reset = function reset() {
@@ -105,8 +105,8 @@ Kuler.prototype.reset = function reset() {
 /**
  * Colour the terminal using CSS.
  *
- * @param {String} color The HEX color code.
- * @returns {String} the escape code.
+ * @param {string} color The HEX color code.
+ * @returns {string} the escape code.
  * @api public
  */
 Kuler.prototype.style = function style(color) {
